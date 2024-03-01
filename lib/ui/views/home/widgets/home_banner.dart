@@ -16,90 +16,91 @@ class HomeBanner extends StatelessWidget {
       child: Row(
         children: [
           //image
-          SizedBox(
-            width: (kdDesktopMaxContentWidth - 20) * .5,
+          Expanded(
             child: Image.network(
               "https://picsum.photos/200",
               fit: BoxFit.cover,
             ),
           ),
-          Container(
-            width: (kdDesktopMaxContentWidth - 20) * .5,
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                //Category
-                Text(
-                  "Article Umum",
-                  style: ktsBodyRegular.copyWith(
-                      fontSize: 10, color: Colors.white),
-                ),
-                //Title
-                Text(
-                  faker.lorem.sentence(),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: ktsBodyLarge.copyWith(
-                      fontSize: 30,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
-                ),
-                Row(
-                  children: [
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.person,
-                          color: Colors.white,
-                        ),
-                        const SizedBox(
-                          width: 8.0,
-                        ),
-                        Text(
-                          faker.person.name(),
-                          style: ktsBodyRegular.copyWith(
-                              fontSize: 10.0, color: Colors.white),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      width: 128.0,
-                    ),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.date_range,
-                          color: Colors.white,
-                        ),
-                        const SizedBox(
-                          width: 8.0,
-                        ),
-                        Text(
-                          DateFormat("dd MMMM yyyy", "id_ID")
-                              .format(faker.date.dateTime()),
-                          style: ktsBodyRegular.copyWith(
-                              fontSize: 10.0, color: Colors.white),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-                Text(
-                  faker.lorem.sentences(10).join(" "),
-                  maxLines: 8,
-                  overflow: TextOverflow.ellipsis,
-                  style: ktsBodyRegular.copyWith(
-                      fontSize: 15, color: Colors.white),
-                ),
-                TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Read More...",
-                      style: ktsBodyRegular.copyWith(
-                          fontSize: 12.0, color: Colors.white),
-                    ))
-              ],
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  //Category
+                  Text(
+                    "Article Umum",
+                    style: ktsBodyRegular.copyWith(
+                        fontSize: 10, color: Colors.white),
+                  ),
+                  //Title
+                  Text(
+                    faker.lorem.sentence(),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: ktsBodyLarge.copyWith(
+                        fontSize: 30,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Row(
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.person,
+                            color: Colors.white,
+                          ),
+                          const SizedBox(
+                            width: 8.0,
+                          ),
+                          Text(
+                            faker.person.name(),
+                            style: ktsBodyRegular.copyWith(
+                                fontSize: 10.0, color: Colors.white),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        width: 128.0,
+                      ),
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.date_range,
+                            color: Colors.white,
+                          ),
+                          const SizedBox(
+                            width: 8.0,
+                          ),
+                          Text(
+                            DateFormat("dd MMMM yyyy", "id_ID")
+                                .format(faker.date.dateTime()),
+                            style: ktsBodyRegular.copyWith(
+                                fontSize: 10.0, color: Colors.white),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                  Text(
+                    faker.lorem.sentences(10).join(" "),
+                    maxLines: 8,
+                    overflow: TextOverflow.ellipsis,
+                    style: ktsBodyRegular.copyWith(
+                        fontSize: 15, color: Colors.white),
+                  ),
+                  TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Read More...",
+                        style: ktsBodyRegular.copyWith(
+                            fontSize: 12.0, color: Colors.white),
+                      ))
+                ],
+              ),
             ),
           ),
         ],
