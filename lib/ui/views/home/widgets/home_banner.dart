@@ -1,11 +1,13 @@
 import 'package:amala_blog/ui/common/app_constants.dart';
 import 'package:amala_blog/ui/common/app_shared_style.dart';
+import 'package:amala_blog/ui/views/home/home_viewmodel.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class HomeBanner extends StatelessWidget {
-  const HomeBanner({super.key});
+  final HomeViewModel viewModel;
+  const HomeBanner({super.key, required this.viewModel});
 
   @override
   Widget build(BuildContext context) {
@@ -87,13 +89,15 @@ class HomeBanner extends StatelessWidget {
                   ),
                   Text(
                     faker.lorem.sentences(10).join(" "),
-                    maxLines: 8,
+                    maxLines: 7,
                     overflow: TextOverflow.ellipsis,
                     style: ktsBodyRegular.copyWith(
                         fontSize: 15, color: Colors.white),
                   ),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        viewModel.toArticleDetailView(articleId: '1');
+                      },
                       child: Text(
                         "Read More...",
                         style: ktsBodyRegular.copyWith(

@@ -1,10 +1,12 @@
 import 'package:amala_blog/ui/common/app_shared_style.dart';
+import 'package:amala_blog/ui/views/home/home_viewmodel.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class PopularArticles extends StatelessWidget {
-  const PopularArticles({super.key});
+  final HomeViewModel viewModel;
+  const PopularArticles({super.key, required this.viewModel});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class PopularArticles extends StatelessWidget {
             //main article
             Expanded(
               child: InkWell(
-                onTap: () {},
+                onTap: () => viewModel.toArticleDetailView(articleId: "1"),
                 onHover: (val) {},
                 child: Column(
                   children: [
@@ -116,7 +118,8 @@ class PopularArticles extends StatelessWidget {
                     physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       return InkWell(
-                        onTap: () {},
+                        onTap: () => viewModel.toArticleDetailView(
+                            articleId: "${index}"),
                         onHover: (val) {
                           print("hover on article #${index + 1} $val");
                         },

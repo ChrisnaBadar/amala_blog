@@ -6,12 +6,14 @@ import 'package:amala_blog/ui/views/unknown/unknown_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:amala_blog/ui/views/main_layout/main_layout_view.dart';
+import 'package:amala_blog/ui/views/article_detail/article_detail_view.dart';
 // @stacked-import
 
 @StackedApp(
   routes: [
     MaterialRoute(page: MainLayoutView, initial: true, children: [
       CustomRoute(page: HomeView, path: ''),
+      CustomRoute(page: ArticleDetailView, path: 'article-detail/:articleId'),
       CustomRoute(page: StartupView, initial: true),
     ]),
 // @stacked-route
